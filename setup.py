@@ -1,4 +1,3 @@
-import os
 import sys
 from os.path import join
 from distutils.core import setup
@@ -13,10 +12,14 @@ mkl_libs = {
     'win-32': "mkl_core_dll mkl_intel_c_dll mkl_intel_thread_dll",
 }
 
+plat = '%s-%d' % ({'linux': 'linux', 'linux2': 'linux',
+                   'darwin': 'osx',  'win32': 'win'}[sys.platform],
+                  tuple.__itemsize__ * 8)
+
 ext_kwds = dict(
     name = "mkl.service",
-    sources = ["service.c"],
-    libraries = mkl_libs[os.getenv('SUBDIR')].split(),
+    sources = ["mkl/service.c"],
+    libraries = mkl_libs[plat].split(),
     define_macros = [],
     include_dirs = [join(sys.prefix, 'include')],
     library_dirs = [join(sys.prefix,
