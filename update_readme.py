@@ -16,7 +16,7 @@ def write_doc(name):
     m = sig_pat.match(lines[0])
     if m is None:
         raise Exception("signature line invalid: %r" % lines[0])
-    s = '``%s``' %  m.group(1)
+    s = '``mkl.%s``' %  m.group(1)
     if m.group(3):
         s += ' -> %s' % m.group(3)
     fo.write(s + '\n')
@@ -31,7 +31,7 @@ def write_reference():
              "---------\n\n"
              "**mkl service functions:**\n\n")
     for method in sorted(dir(mkl)):
-        if method.startswith('_') or method in 'service':
+        if method.startswith('_') or method in ('service', 'test'):
             continue
         write_doc('mkl.%s' % method)
 
