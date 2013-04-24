@@ -31,7 +31,7 @@ def write_reference():
              "---------\n\n"
              "**mkl service functions:**\n\n")
     for method in sorted(dir(mkl)):
-        if method.startswith('_') or method in ('service', 'test'):
+        if method.startswith('_') or method == 'service':
             continue
         write_doc('mkl.%s' % method)
 
