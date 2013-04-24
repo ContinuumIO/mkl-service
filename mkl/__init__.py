@@ -8,3 +8,8 @@ from .service import (get_version_string, mem_stat, get_cpu_clocks,
 
 
 __version__ = '__VERSION__'
+
+
+def test(verbosity=1):
+    from .test import run
+    run(verbosity=verbosity)
