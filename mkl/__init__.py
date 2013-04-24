@@ -11,5 +11,9 @@ __version__ = '1.0'
 
 
 def test(verbosity=1):
+    """test(verbosity=1) -> TextTestResult
+
+Run self-test, and return unittest.runner.TextTestResult object.
+"""
     from .test import run
     return run(verbosity=verbosity)

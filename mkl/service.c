@@ -25,7 +25,7 @@ get_version_string(void)
     return PyUnicode_FromString(buffer);
 }
 
-PyDoc_STRVAR(doc_get_version_string, "get_version_string()\n\n\
+PyDoc_STRVAR(doc_get_version_string, "get_version_string() -> str\n\n\
 Return the library version information as a string.");
 
 
@@ -40,7 +40,7 @@ mem_stat(PyObject *self, PyObject *args)
     return PyLong_FromLongLong((PY_LONG_LONG) mkl_mem_stat(&n));
 }
 
-PyDoc_STRVAR(doc_mem_stat, "mem_stat(n)\n\n\
+PyDoc_STRVAR(doc_mem_stat, "mem_stat(n) -> int\n\n\
 Returns an amount of memory, allocated by the MKL Memory Allocator.");
 
 
@@ -53,7 +53,7 @@ get_cpu_clocks(void)
     return PyLong_FromLongLong((PY_LONG_LONG) x);
 }
 
-PyDoc_STRVAR(doc_get_cpu_clocks, "get_cpu_clocks()\n\n\
+PyDoc_STRVAR(doc_get_cpu_clocks, "get_cpu_clocks() -> int\n\n\
 Return the CPU clocks as an integer.");
 
 
@@ -63,7 +63,7 @@ get_cpu_frequency(void)
     return PyFloat_FromDouble(mkl_get_cpu_frequency());
 }
 
-PyDoc_STRVAR(doc_get_cpu_frequency, "get_cpu_frequency()\n\n\
+PyDoc_STRVAR(doc_get_cpu_frequency, "get_cpu_frequency() -> float\n\n\
 Return CPU frequency in GHz as a float.");
 
 
@@ -95,7 +95,7 @@ get_max_threads(void)
     return PyInt_FromLong((long) mkl_get_max_threads());
 }
 
-PyDoc_STRVAR(doc_get_max_threads, "get_max_threads()\n\n\
+PyDoc_STRVAR(doc_get_max_threads, "get_max_threads() -> int\n\n\
 Return the number threads Intel MKL is targeting for parallelism.");
 
 
