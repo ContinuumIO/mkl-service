@@ -3,13 +3,22 @@ mkl-service
 ===========
 
 This package exposes a few functions which are declared in mkl_service.h.
+The main purpose of the package is to allow the user to change the number
+of CPU's MKL is using at runtime.
 
-Exmaple:
+
+Example:
 --------
+
+In this small example, we first query how many CPU are being used, and then
+change this number.
 
    >>> import mkl
    >>> mkl.get_max_threads()
    2
+   >>> mkl.set_num_threads(1)
+   >>> mkl.get_max_threads()
+   1
 
 
 Reference
