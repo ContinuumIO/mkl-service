@@ -12,4 +12,4 @@ __version__ = '1.0'
 
 def test(verbosity=1):
     from .test import run
-    run(verbosity=verbosity)
+    return run(verbosity=verbosity)
