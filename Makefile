@@ -13,7 +13,7 @@ test: mkl/service.so
 doc: mkl/service.so
 	DYLD_LIBRARY_PATH=$(LIB_DIR) LD_LIBRARY_PATH=$(LIB_DIR) \
 		$(PYTHON) update_readme.py
-	cp README.rst docs/
+	cp README.rst docs/index.rst
 
 
 clean:
