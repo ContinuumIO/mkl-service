@@ -6,11 +6,13 @@ mkl/service.so: mkl/service.c
 
 
 test: mkl/service.so
-	DYLD_LIBRARY_PATH=$(LIB_DIR) $(PYTHON) -c "import mkl; mkl.test()"
+	DYLD_LIBRARY_PATH=$(LIB_DIR) LD_LIBRARY_PATH=$(LIB_DIR) \
+		$(PYTHON) -c "import mkl; mkl.test()"
 
 
 doc: mkl/service.so
-	DYLD_LIBRARY_PATH=$(LIB_DIR) $(PYTHON) update_readme.py
+	DYLD_LIBRARY_PATH=$(LIB_DIR) LD_LIBRARY_PATH=$(LIB_DIR) \
+		$(PYTHON) update_readme.py
 
 
 clean:
