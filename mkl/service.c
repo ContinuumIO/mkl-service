@@ -26,7 +26,7 @@ get_version_string(void)
 }
 
 PyDoc_STRVAR(doc_get_version_string, "get_version_string() -> str\n\n\
-Return the library version information as a string.");
+Return the MKL library version information as a string.");
 
 
 static PyObject *
@@ -96,7 +96,7 @@ get_max_threads(void)
 }
 
 PyDoc_STRVAR(doc_get_max_threads, "get_max_threads() -> int\n\n\
-Return the number threads Intel MKL is targeting for parallelism.");
+Return the number of threads Intel MKL is targeting for parallelism.");
 
 
 static PyMethodDef module_functions[] = {

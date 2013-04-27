@@ -35,11 +35,11 @@ Reference
 
 
 ``mkl.get_max_threads()`` -> int
-   Return the number threads Intel MKL is targeting for parallelism.
+   Return the number of threads Intel MKL is targeting for parallelism.
 
 
 ``mkl.get_version_string()`` -> str
-   Return the library version information as a string.
+   Return the MKL library version information as a string.
 
 
 ``mkl.mem_stat(n)`` -> int
