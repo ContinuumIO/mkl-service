@@ -1,4 +1,4 @@
-LIB_DIR=`python-config --prefix`/lib
+LIB_DIR=`$(PYTHON)-config --prefix`/lib
 
 
 mkl/service.so: mkl/service.c
@@ -7,7 +7,7 @@ mkl/service.so: mkl/service.c
 
 test: mkl/service.so
 	DYLD_LIBRARY_PATH=$(LIB_DIR) LD_LIBRARY_PATH=$(LIB_DIR) \
-		$(PYTHON) -c "import mkl; mkl.test()"
+		$(PYTHON) -c "import mkl.test; mkl.test.run()"
 
 
 doc: mkl/service.so
