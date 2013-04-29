@@ -112,12 +112,19 @@ static PyMethodDef module_functions[] = {
     {NULL,                NULL}  /* sentinel */
 };
 
+PyDoc_STRVAR(m_doc, "\
+mkl-service: bindings MKL service functions declared in mkl_service.h\n\
+=====================================================================\n\n\
+This package exposes a few functions which are declared in mkl_service.h.\n\
+The main purpose of the package is to allow the user to change the number\n\
+of CPU's MKL is using at runtime.");
+
 /*MARK1*/
 
 /* initialization routine for the shared library */
 #ifdef IS_PY3K
 static PyModuleDef moduledef = {
-    PyModuleDef_HEAD_INIT, "service", 0, -1, module_functions,
+    PyModuleDef_HEAD_INIT, "service", m_doc, -1, module_functions,
 };
 PyMODINIT_FUNC PyInit_service(void)
 #else
@@ -133,7 +140,7 @@ PyMODINIT_FUNC initservice(void)
     if (m == NULL)
         return NULL;
 #else
-    m = Py_InitModule3("service", module_functions, 0);
+    m = Py_InitModule3("service", module_functions, m_doc);
     if (m == NULL)
         return;
 #endif

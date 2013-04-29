@@ -21,6 +21,9 @@ class Test(unittest.TestCase):
     def test_get_max_threads(self):
         self.assertTrue(isinstance(mkl.get_max_threads(), int))
 
+    def test_m_doc(self):
+        self.assertTrue('MKL' in mkl.__doc__)
+
 
 def run(verbosity=1):
     print("sys.prefix: %s" % sys.prefix)
