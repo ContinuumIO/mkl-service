@@ -113,11 +113,7 @@ static PyMethodDef module_functions[] = {
 };
 
 PyDoc_STRVAR(m_doc, "\
-mkl-service: bindings MKL service functions declared in mkl_service.h\n\
-=====================================================================\n\n\
-This package exposes a few functions which are declared in mkl_service.h.\n\
-The main purpose of the package is to allow the user to change the number\n\
-of CPU's MKL is using at runtime.");
+mkl.service: bindings MKL service functions declared in mkl_service.h");
 
 /*MARK1*/
 
