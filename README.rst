@@ -49,6 +49,7 @@ Reference
 ``mkl.set_num_threads(n)``
    Set the number of threads MKL should use.  This is only a hint, and no
    guaranteed is made this number of threads will actually be used.
-   This function takes precedence over MKL_NUM_THREADS.
+   This function takes precedence over the environment variable
+   MKL_NUM_THREADS.
 
 

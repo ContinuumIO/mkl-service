@@ -86,7 +86,8 @@ set_num_threads(PyObject *self, PyObject *args)
 PyDoc_STRVAR(doc_set_num_threads , "set_num_threads(n)\n\n\
 Set the number of threads MKL should use.  This is only a hint, and no\n\
 guaranteed is made this number of threads will actually be used.\n\
-This function takes precedence over MKL_NUM_THREADS.");
+This function takes precedence over the environment variable\n\
+MKL_NUM_THREADS.");
 
 
 static PyObject *
