@@ -15,7 +15,7 @@ change this number.
 
    >>> import mkl
    >>> mkl.get_max_threads()
-   2
+   4
    >>> mkl.set_num_threads(1)
    >>> mkl.get_max_threads()
    1
@@ -42,8 +42,11 @@ Reference
    Return the MKL library version information as a string.
 
 
-``mkl.mem_stat(n)`` -> int
-   Returns an amount of memory, allocated by the MKL Memory Allocator.
+``mkl.mem_stat()`` -> (int, int)
+   Returns a tuple (bytes, count) containing memory usage statistics of the
+   MKL allocator
+   - number of bytes allocated (bytes).
+   - number of allocated blocks (count).
 
 
 ``mkl.set_num_threads(n)``

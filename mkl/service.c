@@ -48,8 +48,8 @@ mem_stat(PyObject *self, PyObject *args)
 PyDoc_STRVAR(doc_mem_stat, "mem_stat() -> (int, int)\n\n\
 Returns a tuple (bytes, count) containing memory usage statistics of the\n\
 MKL allocator\n\
- - number of bytes allocated (bytes).\n\
- - number of allocated blocks (count).");
+- number of bytes allocated (bytes).\n\
+- number of allocated blocks (count).");
 
 
 static PyObject *

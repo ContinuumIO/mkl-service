@@ -1,7 +1,11 @@
+from __future__ import print_function
 import os
 import re
 import doctest
-from cStringIO import StringIO
+try:
+    from cStringIO import StringIO
+except:
+    from io import StringIO
 
 import mkl
 
@@ -54,7 +58,7 @@ def main():
     fo.close()
 
     if new_data == data:
-        print "already up-to-date"
+        print("already up-to-date")
     else:
         with open('README.rst', 'w') as f:
             f.write(new_data)
