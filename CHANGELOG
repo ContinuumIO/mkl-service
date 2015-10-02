@@ -1,4 +1,4 @@
-2015-10-XX:   1.1.0:
+2015-10-02:   1.1.0:
 --------------------
   * The mem_stat function only returned the number of bytes allocated and
     took an integer that was unused.  It now returns a tuple containing the
