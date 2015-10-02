@@ -32,16 +32,24 @@ Return the MKL library version information as a string.");
 static PyObject *
 mem_stat(PyObject *self, PyObject *args)
 {
-    int n;
+    PyObject *result_tuple;
+    MKL_INT64 bytes;
+    int blocks;
 
-    if (!PyArg_ParseTuple(args, "i", &n)) {
-        return NULL;
-    }
-    return PyLong_FromLongLong((PY_LONG_LONG) mkl_mem_stat(&n));
+    bytes = mkl_mem_stat(&blocks);
+
+    result_tuple = PyTuple_New(2);
+    PyTuple_SET_ITEM(result_tuple, 0, PyLong_FromLongLong((PY_LONG_LONG) bytes));
+    PyTuple_SET_ITEM(result_tuple, 1, PyLong_FromLong(blocks));
+
+    return result_tuple;
 }
 
-PyDoc_STRVAR(doc_mem_stat, "mem_stat(n) -> int\n\n\
-Returns an amount of memory, allocated by the MKL Memory Allocator.");
+PyDoc_STRVAR(doc_mem_stat, "mem_stat() -> (int, int)\n\n\
+Returns a tuple (bytes, count) containing memory usage statistics of the\n\
+MKL allocator\n\
+- number of bytes allocated (bytes).\n\
+- number of allocated blocks (count).");
 
 
 static PyObject *
@@ -50,7 +58,7 @@ get_cpu_clocks(void)
     unsigned MKL_INT64 x;
 
     mkl_get_cpu_clocks(&x);
-    return PyLong_FromLongLong((PY_LONG_LONG) x);
+    return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) x);
 }
 
 PyDoc_STRVAR(doc_get_cpu_clocks, "get_cpu_clocks() -> int\n\n\
@@ -103,7 +111,7 @@ Return the number of threads Intel MKL is targeting for parallelism.");
 static PyMethodDef module_functions[] = {
 #define F(name, func)  {#name, (PyCFunction) name, func, doc_ ##name}
     F(get_version_string, METH_NOARGS),
-    F(mem_stat,           METH_VARARGS),
+    F(mem_stat,           METH_NOARGS),
     F(get_cpu_clocks,     METH_NOARGS),
     F(get_cpu_frequency,  METH_NOARGS),
     F(set_num_threads,    METH_VARARGS),
@@ -113,8 +121,9 @@ static PyMethodDef module_functions[] = {
 };
 
 PyDoc_STRVAR(m_doc, "\
-mkl.service: bindings MKL service functions declared in mkl_service.h");
+Extension module providing service functions for the MKL library");
 
+/* the following line is a marker to insert licensing code */
 /*MARK1*/
 
 /* initialization routine for the shared library */
@@ -129,6 +138,7 @@ PyMODINIT_FUNC initservice(void)
 {
     PyObject *m;
 
+    /* the following line is a marker to insert licensing code */
     /*MARK2*/
 
 #ifdef IS_PY3K
