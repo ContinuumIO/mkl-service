@@ -1,3 +1,14 @@
+2015-10-XX:   1.1.0:
+--------------------
+  * The mem_stat function only returned the number of bytes allocated and
+    took an integer that was unused.  It now returns a tuple containing the
+    number of bytes allocated and the number of blocks allocated.
+  * The get_cpu_clocks function now casts from an unsigned long long.
+  * The single library mkl_rt is linked against, to allow runtime selection
+    of the threading model.
+  * updated the update_readme.py script to run on Python 3
+
+
 2013-04-29:   1.0.0:
 --------------------
   * initial release
