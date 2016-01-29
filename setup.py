@@ -22,6 +22,7 @@ setup(
     name='mkl-service',
     author = "Continuum Analytics, Inc.",
     author_email = "support@continuum.io",
+    license = "BSD",
     description = "Continuum Analytics MKL service binding",
     packages = ["mkl"],
     ext_modules = [Extension(**ext_kwds)],
