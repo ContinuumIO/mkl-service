@@ -9,15 +9,6 @@ if sys.platform == 'win32':
 else:
     mkl_prefix = sys.prefix
 
-ext_kwds = dict(
-    name = "mkl.service",
-    sources = ["mkl/service.c"],
-    libraries = ["mkl_rt"],
-    define_macros = [],
-    include_dirs = [join(mkl_prefix, 'include')],
-    library_dirs = [join(mkl_prefix, 'lib')],
-)
-
 setup(
     name='mkl-service',
     author = "Continuum Analytics, Inc.",
@@ -25,5 +16,12 @@ setup(
     license = "BSD",
     description = "Continuum Analytics MKL service binding",
     packages = ["mkl"],
-    ext_modules = [Extension(**ext_kwds)],
+    ext_modules = [Extension(
+            name = "mkl.service",
+            sources = ["mkl/service.c"],
+            libraries = ["mkl_rt"],
+            define_macros = [],
+            include_dirs = [join(mkl_prefix, 'include')],
+            library_dirs = [join(mkl_prefix, 'lib')],
+    )],
 )
