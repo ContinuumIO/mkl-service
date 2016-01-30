@@ -64,7 +64,6 @@ def main():
             f.write(new_data)
 
     doctest.testfile('README.rst')
-    os.system('rst2html.py README.rst >README.html')
 
 
 if __name__ == '__main__':
