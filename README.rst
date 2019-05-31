@@ -1,3 +1,5 @@
+DEPRECATED: Please see https://github.com/IntelPython/mkl-service for the current project.
+
 ===========
 mkl-service
 ===========
